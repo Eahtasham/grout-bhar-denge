@@ -1,0 +1,248 @@
+{
+  "problems": [
+    {
+      "category": "Padhai",
+      "problem": "Exam kal hai, syllabus pura baaki",
+      "fix": "Syllabus ke gap mein grout bhar diya"
+    },
+    {
+      "category": "Padhai",
+      "problem": "Backlog aa gayi",
+      "fix": "Marksheet pe grout, ab smooth hai"
+    },
+    {
+      "category": "Padhai",
+      "problem": "Assignment copy pakdi gayi",
+      "fix": "Plagiarism ke beech grout bhar diya"
+    },
+    {
+      "category": "Padhai",
+      "problem": "Teacher ne parents bulaye",
+      "fix": "PTM ke beech grout bhar diya"
+    },
+    {
+      "category": "Padhai",
+      "problem": "Coaching ki fees due hai",
+      "fix": "Fees receipt mein grout bhar diya"
+    },
+    {
+      "category": "Naukri",
+      "problem": "Salary late hai",
+      "fix": "Bank balance mein grout bhar diya"
+    },
+    {
+      "category": "Naukri",
+      "problem": "Boss ne Sunday ko call kiya",
+      "fix": "Weekend ka gap grout se seal"
+    },
+    {
+      "category": "Naukri",
+      "problem": "Appraisal mein 2%",
+      "fix": "Increment ke gap mein grout"
+    },
+    {
+      "category": "Naukri",
+      "problem": "Meeting jo email ho sakti thi",
+      "fix": "Calendar mein grout bhar diya"
+    },
+    {
+      "category": "Naukri",
+      "problem": "Notice period 90 din",
+      "fix": "Notice period mein grout, ab 0 din"
+    },
+    {
+      "category": "Rishte",
+      "problem": "Usne seen karke chhod diya",
+      "fix": "Blue tick ke beech grout bhar diya"
+    },
+    {
+      "category": "Rishte",
+      "problem": "Rishta wali aunty aa gayi",
+      "fix": "Sawaalon ke beech grout bhar diya"
+    },
+    {
+      "category": "Rishte",
+      "problem": "Group chat mein ladai",
+      "fix": "Admin ne grout bhar diya"
+    },
+    {
+      "category": "Rishte",
+      "problem": "Dost ne udhaar wapas nahi kiya",
+      "fix": "Udhaar ke gap mein grout bhar diya"
+    },
+    {
+      "category": "Rishte",
+      "problem": "Ex ne story dekh li",
+      "fix": "Story views mein grout bhar diya"
+    },
+    {
+      "category": "Ghar",
+      "problem": "Mummy ne result dekh liya",
+      "fix": "Report card mein grout, sab theek"
+    },
+    {
+      "category": "Ghar",
+      "problem": "AC ka bill aaya",
+      "fix": "Meter ke andar grout bhar diya"
+    },
+    {
+      "category": "Ghar",
+      "problem": "Naya phone, screen crack",
+      "fix": "Screen guard nahi, grout guard"
+    },
+    {
+      "category": "Ghar",
+      "problem": "Pados mein drilling chalu",
+      "fix": "Deewar mein grout, ab shanti"
+    },
+    {
+      "category": "Ghar",
+      "problem": "Tanki ka paani khatam",
+      "fix": "Tanki ke gap mein grout bhar diya"
+    },
+    {
+      "category": "Desh",
+      "problem": "Sadak pe gaddha",
+      "fix": "NH ka gap grout se bhar diya"
+    },
+    {
+      "category": "Desh",
+      "problem": "Train 6 ghante late",
+      "fix": "Timetable mein grout bhar diya"
+    },
+    {
+      "category": "Desh",
+      "problem": "Metro mein jagah nahi",
+      "fix": "Bheed ke beech grout bhar diya"
+    },
+    {
+      "category": "Desh",
+      "problem": "Traffic mein 2 ghante",
+      "fix": "Signal ke beech grout bhar diya"
+    },
+    {
+      "category": "Desh",
+      "problem": "Auto wala meter se nahi jayega",
+      "fix": "Meter mein grout, ab seedha chalega"
+    },
+    {
+      "category": "Tech",
+      "problem": "WiFi gaya",
+      "fix": "Router mein grout, signal full"
+    },
+    {
+      "category": "Tech",
+      "problem": "Code chal nahi raha",
+      "fix": "Bug mein grout, ab production ready"
+    },
+    {
+      "category": "Tech",
+      "problem": "Phone 1% pe",
+      "fix": "Battery ke gap mein grout"
+    },
+    {
+      "category": "Tech",
+      "problem": "OTP aaya hi nahi",
+      "fix": "Network mein grout, OTP aa gaya"
+    },
+    {
+      "category": "Tech",
+      "problem": "Storage full hai",
+      "fix": "Gallery ke gap mein grout bhar diya"
+    }
+  ],
+  "voice": {
+    "start": [
+      {
+        "id": "start",
+        "text": "Isme grout bhar denge!",
+        "source": "reel"
+      }
+    ],
+    "fill": [
+      {
+        "id": "fill-1",
+        "text": "Grout bhar denge!",
+        "source": "reel"
+      },
+      {
+        "id": "fill-5",
+        "text": "Grout bhar denge!",
+        "source": "reel"
+      },
+      {
+        "id": "fill-2",
+        "text": "Ho gaya bhai",
+        "say": "हो गया भाई!"
+      },
+      {
+        "id": "fill-3",
+        "text": "Ekdum smooth",
+        "say": "एकदम स्मूथ!"
+      },
+      {
+        "id": "fill-4",
+        "text": "Isme bhi grout",
+        "say": "इसमें भी ग्राउट!"
+      }
+    ],
+    "combo5": [
+      {
+        "id": "combo5",
+        "text": "Grout King aa gaya!",
+        "say": "ग्राउट किंग आ गया!"
+      }
+    ],
+    "leak": [
+      {
+        "id": "leak",
+        "text": "Ye paani nahi bharega?",
+        "source": "reel"
+      }
+    ],
+    "rush": [
+      {
+        "id": "rush",
+        "text": "Kitna gap hai ye?",
+        "source": "reel"
+      }
+    ],
+    "gameOver": {
+      "Naya Helper": {
+        "id": "over-helper",
+        "text": "Ye to achha nahi lag raha hai",
+        "source": "reel"
+      },
+      "Mistri": {
+        "id": "over-mistri",
+        "text": "Haath saaf hai, aur bhar",
+        "say": "हाथ साफ़ है, और भर!"
+      },
+      "Senior Mistri": {
+        "id": "over-senior",
+        "text": "Poori gali seal kar di",
+        "say": "पूरी गली सील कर दी!"
+      },
+      "Thekedaar": {
+        "id": "over-thekedaar",
+        "text": "Pura mohalla tere bharose",
+        "say": "पूरा मोहल्ला तेरे भरोसे!"
+      },
+      "Grout King": {
+        "id": "over-king",
+        "text": "Poora shehar seal kar diya",
+        "say": "पूरा शहर सील कर दिया!"
+      }
+    }
+  },
+  "share": {
+    "text": "Maine {score} points ke problems mein grout bhar diya. Rank: {rank}. Tu kitna bharega?",
+    "challengeBanner": "{name} ne {score} kiye. Beat karo?",
+    "beatChallenge": "{name} ko hara diya!",
+    "comeBack": "Kal naye problems aayenge"
+  },
+  "credits": {
+    "voice": "@nasim_tiles_industry",
+    "voiceUrl": "https://www.instagram.com/nasim_tiles_industry/"
+  }
+}

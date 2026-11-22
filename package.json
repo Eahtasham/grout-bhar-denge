@@ -6,12 +6,19 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "db:migrate": "node --env-file=.env.local scripts/migrate.mjs",
+    "voice:split": "node scripts/voice.mjs split",
+    "voice:cut": "node scripts/voice.mjs cut",
+    "voice:tts": "node --env-file=.env.local scripts/tts.mjs"
   },
   "dependencies": {
+    "@vercel/analytics": "^1.5.0",
     "next": "16.4.6",
+    "postgres": "^3.4.5",
     "react": "19.3.0",
-    "react-dom": "19.3.0"
+    "react-dom": "19.3.0",
+    "server-only": "^0.0.1"
   },
   "devDependencies": {
     "@tailwindcss/turbopack": "4.3.3",
@@ -20,6 +27,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.4.6",
+    "ffmpeg-static": "^5.2.0",
     "tailwindcss": "4.3.3",
     "typescript": "^5"
   }

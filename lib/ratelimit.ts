@@ -7,17 +7,18 @@ export function clientIp(req: Request) {
   return (fwd?.split(",")[0] ?? req.headers.get("x-real-ip") ?? "unknown").trim();
 }
 
-/** Fixed-window limiter stored in Postgres. Returns true if the request is allowed. */
-export async function rateLimit(req: Request, route: string, limit: number, windowS = 60) {
+/**
+ * Fixed-window rate-limit key for this request. Routes fold the counter update into
+ * their own query (one round trip instead of two) using `rate_hits`.
+ */
+export function rateKey(req: Request, route: string, windowS = 60) {
   const ipHash = createHash("sha256").update(clientIp(req)).digest("hex").slice(0, 24);
-  const key = `${route}:${ipHash}`;
-  const bucket = Math.floor(Date.now() / 1000 / windowS);
-  const [row] = await sql<{ count: number }[]>`
-    insert into rate_hits (key, bucket) values (${key}, ${bucket})
-    on conflict (key, bucket) do update set count = rate_hits.count + 1
-    returning count`;
+  return { key: `${route}:${ipHash}`, bucket: Math.floor(Date.now() / 1000 / windowS) };
+}
+
+/** Occasionally clears old rate-limit windows. Fire-and-forget. */
+export function pruneRateHits(bucket: number) {
   if (Math.random() < 0.02) {
-    await sql`delete from rate_hits where bucket < ${bucket - 5}`;
+    sql`delete from rate_hits where bucket < ${bucket - 5}`.catch(() => {});
   }
-  return row.count <= limit;
 }

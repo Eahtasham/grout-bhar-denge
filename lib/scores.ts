@@ -58,12 +58,19 @@ export interface BoardEntry {
 }
 
 export async function getLeaderboard(scope: "daily" | "all", limit = 50): Promise<BoardEntry[]> {
+  // One row per player: their best score of the day, shown with their current nickname.
   const rows =
     scope === "daily"
       ? await sql`
-          select id, nickname, score, rank from scores
-          where day = ${istDay()}
-          order by score desc, created_at asc
+          select t.id, coalesce(pb.nickname, t.nickname) as nickname, t.score, t.rank
+          from (
+            select distinct on (device_id) id, device_id, nickname, score, rank, created_at
+            from scores
+            where day = ${istDay()}
+            order by device_id, score desc, created_at asc
+          ) t
+          left join player_best pb on pb.device_id = t.device_id
+          order by t.score desc, t.created_at asc
           limit ${limit}`
       : await sql`
           select score_id as id, nickname, score, rank from player_best

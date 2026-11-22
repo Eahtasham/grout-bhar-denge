@@ -25,6 +25,8 @@ create table if not exists scores (
   created_at    timestamptz not null default now()
 );
 create index if not exists scores_day_score on scores (day, score desc, created_at);
+-- Daily board picks each player's best of the day.
+create index if not exists scores_day_device_score on scores (day, device_id, score desc, created_at);
 
 -- One row per device: its best score ever (the all-time board).
 create table if not exists player_best (

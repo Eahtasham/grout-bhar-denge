@@ -12,7 +12,9 @@ function create() {
     prepare: false,
     ssl: "require",
     max: 3,
-    idle_timeout: 20,
+    // Keep the connection open across a full 60 s round, so the score save at the
+    // end doesn't pay for a fresh TLS + auth handshake (~10 round trips).
+    idle_timeout: 120,
     connect_timeout: 10,
   });
 }

@@ -7,7 +7,7 @@ if (!url) {
   console.error("DATABASE_URL is not set");
   process.exit(1);
 }
-const sql = postgres(url, { prepare: false, ssl: "require", max: 1 });
+const sql = postgres(url, { prepare: false, ssl: "require", max: 1, onnotice: () => {} });
 const schema = readFileSync(new URL("../db/schema.sql", import.meta.url), "utf8");
 try {
   await sql.unsafe(schema);

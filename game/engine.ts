@@ -588,12 +588,18 @@ export class GameEngine {
     this.lastPt = null;
     this.finger = null;
     const flooded = this.meter >= METER_MAX;
-    this.audio.stopAll();
-    if (flooded) this.audio.splash();
     const result = simulateRound(this.schedule, this.fills);
     this.score = result.score;
-    this.audio.endSting(result.score >= 700 && !flooded);
+    // Show the result and save the score first; end-of-round sounds are extras
+    // and must never be able to block that.
     this.cb.onEnd({ result, fills: result.validFills });
+    try {
+      this.audio.stopAll();
+      if (flooded) this.audio.splash();
+      this.audio.endSting(result.score >= 700 && !flooded);
+    } catch (e) {
+      console.warn("end-of-round audio failed", e);
+    }
   }
 
   private frame = (now: number) => {

@@ -168,6 +168,9 @@ class AudioManager {
     bus: AudioNode | null = this.sfx,
   ) {
     if (!this.ctx || !bus) return;
+    // A bad value must never throw: the Web Audio API rejects NaN/Infinity, and an
+    // exception here would interrupt whatever game code called it.
+    if (![freq, endFreq, dur, vol, when].every(Number.isFinite) || freq <= 0 || dur <= 0) return;
     const t = when || this.ctx.currentTime;
     const o = this.ctx.createOscillator();
     const g = this.ctx.createGain();
@@ -192,6 +195,7 @@ class AudioManager {
     q = 1,
   ) {
     if (!this.ctx || !bus || !this.noise) return;
+    if (![dur, vol, freq, when, q].every(Number.isFinite) || dur <= 0) return;
     const t = when || this.ctx.currentTime;
     const src = this.ctx.createBufferSource();
     src.buffer = this.noise;
@@ -276,8 +280,9 @@ class AudioManager {
   endSting(good: boolean) {
     const t = (this.ctx?.currentTime ?? 0) + 0.15;
     if (good) {
-      [0, 4, 7, 12].forEach((s, i) => {
-        const f = ROOT * Math.pow(2, SCALE[Math.min(SCALE.length - 1, s / 2 + 2)] / 12);
+      // Rising arpeggio on scale steps 2, 4, 5, 7 (whole indices into SCALE).
+      [2, 4, 5, 7].forEach((step, i) => {
+        const f = ROOT * Math.pow(2, SCALE[step] / 12);
         this.tone(f, f, 0.5, 0.18, "triangle", t + i * 0.11);
       });
       this.tone(100, 45, 0.6, 0.7, "sine", t + 0.44);
